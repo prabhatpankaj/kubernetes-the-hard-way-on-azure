@@ -11,16 +11,7 @@ Download and install `cfssl` and `cfssljson` from the [cfssl repository](https:/
 ### OS X
 
 ```shell
-curl -o cfssl https://pkg.cfssl.org/R1.2/cfssl_darwin-amd64
-curl -o cfssljson https://pkg.cfssl.org/R1.2/cfssljson_darwin-amd64
-```
-
-```shell
-chmod +x cfssl cfssljson
-```
-
-```shell
-sudo mv cfssl cfssljson /usr/local/bin/
+brew reinstall cfssl
 ```
 
 ### Linux
