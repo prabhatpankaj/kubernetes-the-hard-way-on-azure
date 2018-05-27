@@ -116,7 +116,7 @@ Kubernetes uses a [special-purpose authorization mode](https://kubernetes.io/doc
 Generate a certificate and private key for each Kubernetes worker node:
 
 ```shell
-for instance in worker-0 worker-1 worker-2; do
+for instance in worker-0 worker-1; do
 cat > ${instance}-csr.json <<EOF
 {
   "CN": "system:node:${instance}",
@@ -158,8 +158,6 @@ worker-0-key.pem
 worker-0.pem
 worker-1-key.pem
 worker-1.pem
-worker-2-key.pem
-worker-2.pem
 ```
 
 ### The kube-proxy Client Certificate
@@ -263,7 +261,7 @@ kubernetes.pem
 Copy the appropriate certificates and private keys to each worker instance:
 
 ```shell
-for instance in worker-0 worker-1 worker-2; do
+for instance in worker-0 worker-1; do
   PUBLIC_IP_ADDRESS=$(az network public-ip show -g kubernetes \
     -n ${instance}-pip --query "ipAddress" -otsv)
 
@@ -274,7 +272,7 @@ done
 Copy the appropriate certificates and private keys to each controller instance:
 
 ```shell
-for instance in controller-0 controller-1 controller-2; do
+for instance in controller-0 controller-1; do
   PUBLIC_IP_ADDRESS=$(az network public-ip show -g kubernetes \
     -n ${instance}-pip --query "ipAddress" -otsv)
 
