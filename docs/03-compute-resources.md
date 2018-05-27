@@ -121,14 +121,14 @@ The compute instances in this lab will be provisioned using [Ubuntu Server](http
 
 ### Kubernetes Controllers
 
-Create two compute instances which will host the Kubernetes control plane in `controller-as` [Availability Set](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/regions-and-availability#availability-sets):
+Create three compute instances which will host the Kubernetes control plane in `controller-as` [Availability Set](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/regions-and-availability#availability-sets):
 
 ```shell
 az vm availability-set create -g kubernetes -n controller-as
 ```
 
 ```shell
-for i in 0 1; do
+for i in 0 1 2; do
     echo "[Controller ${i}] Creating public IP..."
     az network public-ip create -n controller-${i}-pip -g kubernetes > /dev/null
 
@@ -160,14 +160,14 @@ Each worker instance requires a pod subnet allocation from the Kubernetes cluste
 
 > The Kubernetes cluster CIDR range is defined by the Controller Manager's `--cluster-cidr` flag. In this tutorial the cluster CIDR range will be set to `10.240.0.0/16`, which supports 254 subnets.
 
-Create two compute instances which will host the Kubernetes worker nodes in `worker-as` Availability Set:
+Create one compute instances which will host the Kubernetes worker nodes in `worker-as` Availability Set:
 
 ```shell
 az vm availability-set create -g kubernetes -n worker-as
 ```
 
 ```shell
-for i in 0 1; do
+for i in 0; do
     echo "[Worker ${i}] Creating public IP..."
     az network public-ip create -n worker-${i}-pip -g kubernetes > /dev/null
 
@@ -206,8 +206,8 @@ Name          ResourceGroup    PowerState    PublicIps       Location
 ------------  ---------------  ------------  --------------  ----------
 controller-0  kubernetes       VM running    XX.XXX.XXX.XXX  westus2
 controller-1  kubernetes       VM running    XX.XXX.XXX.XXX  westus2
+controller-2  kubernetes       VM running    XX.XXX.XXX.XXX  westus2
 worker-0      kubernetes       VM running    XX.XXX.XXX.XXX  westus2
-worker-1      kubernetes       VM running    XX.XXX.XXX.XXX  westus2
 ```
 
 Next: [Provisioning a CA and Generating TLS Certificates](04-certificate-authority.md)
