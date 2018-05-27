@@ -247,7 +247,6 @@ kubectl get nodes
 ```shell
 NAME       STATUS    AGE       VERSION
 worker-0   Ready     5m        v1.9.4
-worker-1   Ready     3m        v1.9.4
 ```
 
 Next: [Configuring kubectl for Remote Access](10-configuring-kubectl.md)
