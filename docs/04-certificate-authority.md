@@ -116,7 +116,7 @@ Kubernetes uses a [special-purpose authorization mode](https://kubernetes.io/doc
 Generate a certificate and private key for each Kubernetes worker node:
 
 ```shell
-for instance in worker-0 worker-1; do
+for instance in worker-0; do
 cat > ${instance}-csr.json <<EOF
 {
   "CN": "system:node:${instance}",
@@ -156,8 +156,6 @@ Results:
 ```shell
 worker-0-key.pem
 worker-0.pem
-worker-1-key.pem
-worker-1.pem
 ```
 
 ### The kube-proxy Client Certificate
