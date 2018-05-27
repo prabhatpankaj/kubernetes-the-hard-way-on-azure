@@ -54,7 +54,8 @@ kubectl get componentstatuses
 NAME                 STATUS    MESSAGE              ERROR
 controller-manager   Healthy   ok
 scheduler            Healthy   ok
-etcd-2               Healthy   {"health": "true"}
+etcd-1               Healthy   {"health": "true"}
+etcd-2               Healthy   {"health":"true"} 
 etcd-0               Healthy   {"health": "true"}
 ```
 
@@ -69,7 +70,6 @@ kubectl get nodes
 ```shell
 NAME       STATUS    AGE       VERSION
 worker-0   Ready     7m        v1.9.4
-worker-1   Ready     4m        v1.9.4
 ```
 
 Next: [Provisioning Pod Network Routes](11-pod-network-routes.md)
