@@ -26,7 +26,7 @@ When generating kubeconfig files for Kubelets the client certificate matching th
 Generate a kubeconfig file for each worker node:
 
 ```shell
-for instance in worker-0 worker-1 worker-2; do
+for instance in worker-0 worker-1; do
   kubectl config set-cluster kubernetes-the-hard-way \
     --certificate-authority=ca.pem \
     --embed-certs=true \
@@ -53,7 +53,6 @@ Results:
 ```shell
 worker-0.kubeconfig
 worker-1.kubeconfig
-worker-2.kubeconfig
 ```
 
 ### The kube-proxy Kubernetes Configuration File
@@ -92,7 +91,7 @@ kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig
 Copy the appropriate `kubelet` and `kube-proxy` kubeconfig files to each worker instance:
 
 ```shell
-for instance in worker-0 worker-1 worker-2; do
+for instance in worker-0 worker-1; do
   PUBLIC_IP_ADDRESS=$(az network public-ip show -g kubernetes \
     -n ${instance}-pip --query "ipAddress" -otsv)
 
