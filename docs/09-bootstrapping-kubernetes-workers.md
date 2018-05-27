@@ -57,7 +57,7 @@ sudo mkdir -p \
   /etc/cni/net.d \
   /opt/cni/bin \
   /var/lib/kubelet \
-  /var/lib/kube-proxy \
+  /var/lib/kube-proxy/kubeconfig \
   /var/lib/kubernetes \
   /var/run/kubernetes
 ```
