@@ -117,7 +117,7 @@ sudo systemctl start etcd
 List the etcd cluster members:
 
 ```shell
-ETCDCTL_API=2 etcdctl member list
+ETCDCTL_API=3 etcdctl member list
 ```
 
 > output
