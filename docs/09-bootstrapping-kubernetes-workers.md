@@ -4,7 +4,7 @@ In this lab you will bootstrap three Kubernetes worker nodes. The following comp
 
 ## Prerequisites
 
-The commands in this lab must be run on each controller instance: `worker-0`, `worker-1`, and `worker-2`. 
+The commands in this lab must be run on each controller instance: `worker-0` and `worker-1`. 
 Azure Metadata Instace service cannot be used to set custom property. We have used *tags* on each worker VM to defined POD-CIDR used later.
 
 Retrieve the POD CIDR range for the current compute instance and keep it for later.
@@ -222,7 +222,7 @@ sudo systemctl enable containerd cri-containerd kubelet kube-proxy
 sudo systemctl start containerd cri-containerd kubelet kube-proxy
 ```
 
-> Remember to run the above commands on each worker node: `worker-0`, `worker-1`, and `worker-2`.
+> Remember to run the above commands on each worker node: `worker-0` and `worker-1`.
 
 ## Verification
 
@@ -248,7 +248,6 @@ kubectl get nodes
 NAME       STATUS    AGE       VERSION
 worker-0   Ready     5m        v1.9.4
 worker-1   Ready     3m        v1.9.4
-worker-2   Ready     7s        v1.9.4
 ```
 
 Next: [Configuring kubectl for Remote Access](10-configuring-kubectl.md)
